@@ -10,10 +10,12 @@
 
     <script>
       var query = window.location.pathname.replace(/\/[^\/]*\//, "")
-      console.log(query)
+      axios(query + ".yaml").then(x => document.querySelector("#app").innerText = JSON.stringfiy(yaml.load(x), '', 2))
     </script>
 </head>
 <body>
+    <pre>
     <div id='app'></div>
+    </pre>
 </body>
 </html>
